@@ -134,7 +134,7 @@ class Installer
         $io = $this->getIO();
 
         try {
-            $cmd = escapeshellarg($pathToBinary) . ' -v';
+            $cmd = escapeshellarg('OPENSSL_CONF=/dev/null ' . $$pathToBinary) . ' -v';
             exec($cmd, $stdout);
             $version = $stdout[0];
             return $version;
